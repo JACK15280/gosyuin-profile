@@ -1,0 +1,18 @@
+.main-space
+  .main-space__info
+    .main-space__info--name-pad
+      = link_to current_user.name, user_path(current_user), class: "main-space__info--name"
+    = link_to "ログアウト",  destroy_user_session_path, method: :delete, class: "btn__delete"
+    = link_to 'ホーム', root_path, class: "btn__home"
+    = link_to "退会する", user_path(@user.id), method: :delete, class: "delete-user"
+  .user-edit-form
+    .user-edit-form__title アカウント編集
+    = form_for(current_user, html: { class: "login-form"}) do |f|
+      .user-edit-form__name
+        = f.label :name, '名前'
+        = f.text_field :name, autofocus: true, class: "user-edit-form__name-text"
+      .user-edit-form__email
+        = f.label :email, 'メールアドレス'
+        = f.email_field :email, placeholder: "メールアドレス", class: "user-edit-form__email-text"
+      .user-edit-form__submit
+      = f.submit "編集", class: "user-edit-form__submit-btn"
