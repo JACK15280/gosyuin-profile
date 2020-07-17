@@ -1,0 +1,37 @@
+.wrapper
+  = render "side-bar"
+  .main-space
+    .content-page
+      .content-page__image
+        = image_tag @post.image.url
+      .content-page__text
+        = @post.title
+      .content-page__content
+        = @post.content
+
+    -# .container
+    -#   - if current_user
+    -#     = form_for [@post, @comment] do |f|
+    -#       = f.text_area :text, placeholder: :コメント内容, rows: "2", class: "container__text"
+    -#       = f.submit "コメント", class: "container__btn"
+    -#   - else
+    -#     %p
+    -#       ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+      
+    -#   .container__comments
+    -#     ＜コメント一覧＞
+    -#     - if @comments
+    -#       - @comments.each do |comment|
+    -#         .container__comments--box
+    -#           = link_to "#{comment.user.name}：", "/users/#{comment.user_id}", class: "container__comments--name"
+    -#           = comment.text
+
+    -# .maps
+    -#   場所検索→
+    -#   = link_to maps_path, class: "maps__icon" do
+    -#     %i.fa.fa-map
+    .btn
+      = link_to "ホーム", root_path, class: "btn__home"
+      - if user_signed_in? && current_user.id == @post.user_id
+        = link_to "編集", edit_post_path(@post.id), class: "btn__edit"
+        = link_to "削除", post_path(@post.id), method: :delete, class: "btn__delete"
