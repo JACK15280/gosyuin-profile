@@ -1,17 +1,13 @@
 .main-space
   .main-space__info
     .main-space__info--name-pad
-      = link_to "新規投稿", new_post_path, class: "main-space__info--new-post__btn" 
-      
-      -# do
-        -# %i.fas.fa-plus-circle
-  -#     = link_to current_user.name, user_path(current_user), class: "main-space__info--name"
+    -#   = link_to current_user.name, user_path(current_user), class: "main-space__info--name"
     -# = link_to "グループ作成", new_group_path, class: "btn__edit"
     -# = link_to "アカウント編集", edit_user_registration_path, class: "btn__edit"
     -# = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn__delete"
-    -# .main-space__info--new-post
-    -# = link_to new_post_path, class: "main-space__info--new-post__btn" do
-    -#   %i.fas.fa-plus-circle
+    .main-space__info--new-post
+    = link_to new_post_path, class: "main-space__info--new-post__btn" do
+      %i.fas.fa-plus-circle
 
   .main-space__contents
     -# .main-space__search

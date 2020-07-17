@@ -1,0 +1,30 @@
+.container {
+  background-color: pink;
+  width: 1000px;
+  margin-left: 50px;
+  &__text {
+    width: 400px;
+    margin: 20px 0 0 250px;
+  }
+  &__btn {
+    display: inline-block;
+    padding: 0.3em 1em;
+    text-decoration: none;
+    color: #67c5ff;
+    border: solid 2px #67c5ff;
+    border-radius: 3px;
+    transition: .4s;
+  }
+  &__btn:hover {
+    background: #67c5ff;
+    color: white;
+  }
+  &__comments {
+    margin-left: 300px;
+    font-size: 20px;
+    &--name {
+      text-decoration: none;
+      color: black;
+    }
+  }
+}
