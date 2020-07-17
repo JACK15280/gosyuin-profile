@@ -1,10 +1,10 @@
 .main-space
   .main-space__info
     .main-space__info--name-pad
-    -#   = link_to current_user.name, user_path(current_user), class: "main-space__info--name"
+      = link_to current_user.name, user_path(current_user), class: "main-space__info--name"
     -# = link_to "グループ作成", new_group_path, class: "btn__edit"
-    -# = link_to "アカウント編集", edit_user_registration_path, class: "btn__edit"
-    -# = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn__delete"
+    = link_to "アカウント編集", edit_user_registration_path, class: "btn__edit"
+    = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn__delete"
     .main-space__info--new-post
     = link_to new_post_path, class: "main-space__info--new-post__btn" do
       %i.fas.fa-plus-circle
@@ -19,5 +19,5 @@
         = image_tag post.image.url, class: "main-space__contents--title__image"
         .main-space__contents--title__over
           = link_to post.title, post_path(post.id), class: "main-space__contents--title__text"
-        -# .main-space__contents--title__teb
-        -#   = link_to post.user.name, user_path(post.user), class: "main-space__contents--title__name"
+        .main-space__contents--title__teb
+          = link_to post.user.name, user_path(post.user), class: "main-space__contents--title__name"

@@ -1,0 +1,11 @@
+.login-page
+  = render "devise/shared/links"
+  = form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "login-form" }) do |f|
+    %p.login-text
+      %span.fa-stack.fa-lg
+        %i.fa.fa-circle.fa-stack-2x
+        %i.fa.fa-lock.fa-stack-1x
+      = f.email_field :email, autofocus: true, placeholder: "メールアドレス", class: "login-email"
+      = f.password_field :password, autocomplete: "off", placeholder: "パスワード", class: "login-password"
+      = f.label :password, '(英数字6文字以上)'
+      = f.submit "ログイン", class: 'login-submit'
