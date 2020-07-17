@@ -1,0 +1,27 @@
+.group {
+  &__check-boxs {
+    display: flex;
+    display: inline-block;
+    padding: 50px;
+  }
+  &__add-title {
+    color: black;
+    font-family: 'HiraMinProN-W6';
+    font-size: 20px;
+  }
+  &__add-image {
+    height: 100px;
+    width: 80px;
+  }
+  &__edit-btn {
+    margin: 40px 0 0 470px;
+    font-size: 20px;
+    padding: 20px 40px;
+    text-decoration: none;
+    color: #FFF;
+    background: #03A9F4;
+    border: solid 1px #0f9ada;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+}
