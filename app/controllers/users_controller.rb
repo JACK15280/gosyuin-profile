@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-    @groups = Group.all
+    # @groups = Group.all
     @user = User.find(params[:id])
     @posts = @user.posts
   end
@@ -11,14 +11,21 @@ class UsersController < ApplicationController
   end
 
   def update
-    current_user.update(user_params)
-    redirect_to root_path
+    if current_user.update(user_params)
+      redirect_to root_path, notice: 'ユーザー情報が更新されました'
+    else
+      render :edit
+    end
   end
 
   def destroy
     @user = User.find(params[:id])
-    @user.destroy
-    redirect_to root_path
+    if @user.destroy
+      redirect_to root_path, notice: '退会完了'
+    else
+      flash.now[:alert] = '処理が実行出来ませんでした。'
+      render :show
+    end
   end
 
   private

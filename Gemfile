@@ -57,6 +57,8 @@ group :production do
   gem 'pg'
 end
 
+ruby "2.5.1"
+
 gem 'haml-rails'
 gem "font-awesome-sass"
 gem 'carrierwave'
