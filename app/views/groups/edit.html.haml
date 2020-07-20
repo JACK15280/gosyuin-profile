@@ -1,0 +1,22 @@
+.wrapper
+  = render "posts/side-bar"
+  .main-space
+    .main-space__info
+      .main-space__info--name
+        グループ編集
+      .btn
+        = link_to 'ホーム', root_path, class: "btn__home"
+    = form_for @group do |f|
+      = f.text_field :name, placeholder: "グループ名を入力", class: "main-space__search--text"
+      ※該当する名前にチェックを入れてください
+      .group
+        = f.collection_check_boxes(:post_ids, @posts, :id, :title) do |post|
+          = post.label do
+            .group__check-boxs
+              .group__check-box
+              = post.check_box
+              .group__add-tag
+                = image_tag(post.object.image, class: "group__add-image")
+              .group__add-title
+                = post.object.title
+      = f.submit "更新", class: "group__edit-btn"

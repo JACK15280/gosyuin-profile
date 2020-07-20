@@ -2,6 +2,6 @@
   .side-bar__header
     %h1 御朱印
   .side-bar__group-list
-  -#   - @groups.each do |group|
-  -#     .side-bar__group-list__title
-  -#       = link_to group.name, group_path(group.id), class: "side-bar__group-list__title-name"
+    - @groups.each do |group|
+      .side-bar__group-list__title
+        = link_to group.name, group_path(group.id), class: "side-bar__group-list__title-name"
