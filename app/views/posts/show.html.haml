@@ -9,22 +9,22 @@
       .content-page__content
         = @post.content
 
-    -# .container
-    -#   - if current_user
-    -#     = form_for [@post, @comment] do |f|
-    -#       = f.text_area :text, placeholder: :コメント内容, rows: "2", class: "container__text"
-    -#       = f.submit "コメント", class: "container__btn"
-    -#   - else
-    -#     %p
-    -#       ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
+    .container
+      - if current_user
+        = form_for [@post, @comment] do |f|
+          = f.text_area :text, placeholder: :コメント内容, rows: "2", class: "container__text"
+          = f.submit "コメント", class: "container__btn"
+      - else
+        %p
+          ※※※ コメントの投稿には新規登録/ログインが必要です ※※※
       
-    -#   .container__comments
-    -#     ＜コメント一覧＞
-    -#     - if @comments
-    -#       - @comments.each do |comment|
-    -#         .container__comments--box
-    -#           = link_to "#{comment.user.name}：", "/users/#{comment.user_id}", class: "container__comments--name"
-    -#           = comment.text
+      .container__comments
+        ＜コメント一覧＞
+        - if @comments
+          - @comments.each do |comment|
+            .container__comments--box
+              = link_to "#{comment.user.name}&nbsp;：".html_safe, "/users/#{comment.user_id}", class: "container__comments--name"
+              = comment.text
 
     .maps
       場所検索→
