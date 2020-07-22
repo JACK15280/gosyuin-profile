@@ -2,6 +2,7 @@
   .main-space__info
     .main-space__info--name-pad
       = link_to current_user.name, user_path(current_user), class: "main-space__info--name"
+    = link_to 'ホーム', root_path, class: "btn__home"
     = link_to "グループ作成", new_group_path, class: "btn__edit"
     = link_to "アカウント編集", edit_user_registration_path, class: "btn__edit"
     = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn__delete"
@@ -10,10 +11,9 @@
       %i.fas.fa-plus-circle
 
   .main-space__contents
-    .main-space__search
-      = form_tag posts_searches_path, local: true, method: :get do
-        = text_field_tag :keyword, '', class: "main-space__search--text"
-        = submit_tag "検索", class: "main-space__search--btn"
+    .main-space__info--name
+      検索結果
+    .search-result
     - @posts.each do |post|
       .main-space__contents--title
         = image_tag post.image.url, class: "main-space__contents--title__image"
@@ -21,3 +21,5 @@
           = link_to post.title, post_path(post.id), class: "main-space__contents--title__text"
         .main-space__contents--title__teb
           = link_to post.user.name, user_path(post.user), class: "main-space__contents--title__name"
+
+  
