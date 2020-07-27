@@ -286,6 +286,9 @@
     font-size: 50px;
     width: 250px;
   }
+  &__created, &__updated {
+    padding: 0px 0px 15px 380px;
+  }
   &__content {
     overflow: scroll;
     margin: 0 0 20px 260px;

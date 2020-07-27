@@ -6,6 +6,12 @@
         = image_tag @post.image.url
       .content-page__text
         = @post.title
+      .content-page__created
+        投稿日時：
+        = @post.created_at.strftime("%Y年%m月%d日 %H:%M")
+      .content-page__updated
+        最終更新：
+        = @post.updated_at.strftime("%Y年%m月%d日 %H:%M")
       .content-page__content
         = @post.content
 
