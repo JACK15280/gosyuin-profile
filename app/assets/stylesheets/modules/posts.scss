@@ -212,7 +212,7 @@
 .new-content {
   padding-top: 80px;
   &__image {
-    padding-left: 450px;
+    padding-left: 400px;
     font-size: 200px;
     color: #9999FF;
     cursor: pointer;
@@ -244,17 +244,20 @@
       border-right: 15px solid #ffcc75;
       z-index: 0;
     }
+    &--js {
+      padding-left: 370px;
+    }
   }
   &__title {
     height: 50px;
     width: 500px;
-    margin: 0 0 30px 300px;
+    margin: 0 0 30px 260px;
 
   }
   &__text {
     height: 300px;
     width: 700px;
-    margin-left: 200px;
+    margin-left: 160px;
   }
   &__submit {
     cursor: pointer;
@@ -275,6 +278,13 @@
   &__submit:active {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
   }
+}
+
+#img_prev {
+  width: 375px;
+  height: 500px;
+  padding-left: 320px;
+  object-fit: cover;
 }
 
 .content-page {
