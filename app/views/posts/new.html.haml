@@ -8,7 +8,7 @@
       .new-content__image--explanation
         ここに写真をアップロード
       - if @post.image.present?
-        = image_tag @user.image, id: :img_prev
+        = image_tag @post.image, id: :img_prev
       - else
         = image_tag "34_chiyo005.jpg", id: :img_prev
       .new-content__image--js
