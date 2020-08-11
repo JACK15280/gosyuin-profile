@@ -2,11 +2,16 @@ $(document).on('turbolinks:load', function(){
   $(function(){
     function buildHTML(comment){
       var html = `<div class="container__comments">
+                    <div class="container__comments--all">
                     <p>
                       <a class="container__comments--name" href=/users/${comment.user_id}>${comment.user_name}</a>
                       ：
                     ${comment.text}
                     </p>
+                      <div class="container__comments--days">
+                        ${comment.created_at}
+                      </div>
+                    </div>
                   </div>`
       return html;
     }
