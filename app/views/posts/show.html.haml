@@ -28,9 +28,12 @@
         ＜コメント一覧＞
         - if @comments
           - @comments.each do |comment|
-            .container__comments--box
-              = link_to "#{comment.user.name}&nbsp;：".html_safe, "/users/#{comment.user_id}", class: "container__comments--name"
-              = comment.text
+            .container__comments--all
+              .container__comments--box
+                = link_to "#{comment.user.name}&nbsp;：".html_safe, "/users/#{comment.user_id}", class: "container__comments--name"
+                = comment.text
+              .container__comments--days
+                = comment.created_at.strftime("%Y年%m月%d日 %H:%M")
 
     .maps
       場所検索→

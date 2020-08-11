@@ -20,11 +20,19 @@
     color: white;
   }
   &__comments {
-    margin-left: 300px;
+    margin-left: 150px;
     font-size: 20px;
+    &--all {
+      display: flex;
+    }
     &--name {
       text-decoration: none;
       color: black;
+    }
+    &--days {
+      padding-left: 50px;
+      color: #666666;
+      font-size: 15px;
     }
   }
 }
