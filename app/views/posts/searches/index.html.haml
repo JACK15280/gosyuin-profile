@@ -11,8 +11,17 @@
       %i.fas.fa-plus-circle
 
   .main-space__contents
+    .main-space__search
+      = form_tag posts_searches_path, local: true, method: :get do
+        = text_field_tag :keyword, "#{@search_name}", class: "main-space__search--text"
+        = submit_tag "検索", class: "main-space__search--btn"
     .main-space__info--name
-      検索結果
+      - if @search_name == ""
+        検索結果：該当なし
+      - else
+        %span.main-space__info--name__search
+          = "#{@search_name}"
+        の検索結果
     .search-result
     - @posts.each do |post|
       .main-space__contents--title
