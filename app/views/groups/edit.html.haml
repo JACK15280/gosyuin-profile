@@ -5,7 +5,7 @@
       .main-space__info--name
         グループ編集
       .btn
-        = link_to 'ホーム', root_path, class: "btn__home"
+        = link_to 'ホーム', root_path, class: "btn__home", data: { confirm: 'ホームへ戻りますか？' }
     = form_for @group do |f|
       = f.text_field :name, placeholder: "グループ名を入力", class: "main-space__search--text"
       ※該当する名前にチェックを入れてください
@@ -19,4 +19,4 @@
                 = image_tag(post.object.image, class: "group__add-image")
               .group__add-title
                 = post.object.title
-      = f.submit "更新", class: "group__edit-btn"
+      = f.submit "更新", class: "group__edit-btn", data: { confirm: 'グループの編集を完了しますか？' }

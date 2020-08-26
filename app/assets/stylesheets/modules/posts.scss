@@ -57,6 +57,7 @@
     font-size: 20px;
     color: firebrick;
     margin: 40px 20px 0 0;
+    width: 270px;
   }
   &__group-list {
     background-size: 20px 20px;
@@ -115,6 +116,7 @@
   }
   &__info {
     height: 120px;
+    min-width: 1068px;
     background-color: #d6ebff;
     border: dashed 2px white;
     display: flex;

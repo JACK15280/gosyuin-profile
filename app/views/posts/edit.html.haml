@@ -17,6 +17,6 @@
         = f.text_field :title, placeholder: :寺、神社の名前, class: "new-content__title"
       .new-content__text-areas
         = f.text_area :content, placeholder: :感想, class: "new-content__text"
-        = f.submit "保存", class: "new-content__submit"
+        = f.submit "保存", class: "new-content__submit", data: { confirm: '編集を完了しますか？' }
       .btn
-        = link_to 'ホーム', root_path, class: "btn__home"
+        = link_to 'ホーム', root_path, class: "btn__home", data: { confirm: 'ホームへ戻りますか？' }

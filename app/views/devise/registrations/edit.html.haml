@@ -3,7 +3,7 @@
     .main-space__info--name-pad
       = link_to current_user.name, user_path(current_user), class: "main-space__info--name"
     = link_to "ログアウト",  destroy_user_session_path, method: :delete, class: "btn__delete"
-    = link_to 'ホーム', root_path, class: "btn__home"
+    = link_to 'ホーム', root_path, class: "btn__home", data: { confirm: 'ホームへ戻りますか？' }
     = link_to "退会する", user_path(@user.id), method: :delete, class: "delete-user", data: { confirm: '本当に退会しますか？' }
   .user-edit-form
     .user-edit-form__title アカウント編集
@@ -15,4 +15,4 @@
         = f.label :email, 'メールアドレス'
         = f.email_field :email, placeholder: "メールアドレス", class: "user-edit-form__email-text"
       .user-edit-form__submit
-      = f.submit "編集", class: "user-edit-form__submit-btn"
+      = f.submit "編集", class: "user-edit-form__submit-btn", data: { confirm: '編集を完了しますか？' }
