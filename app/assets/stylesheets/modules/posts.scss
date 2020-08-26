@@ -90,7 +90,7 @@
   width: 100%;
   background-image: url("737ceb674dd14f551a3fe4e51d7b8be5.png");
   &__search {
-    margin-left: 350px;
+    text-align: center;
     &--text {
       height: 40px;
       width: 200px;
@@ -132,6 +132,9 @@
       padding: 8px 16px;
       margin: 30px;
       background: #d14;
+      &__search {
+        font-size: 40px;
+      }
       &:before{
           content: "";
           position: absolute;
