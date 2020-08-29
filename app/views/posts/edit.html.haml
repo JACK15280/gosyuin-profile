@@ -13,6 +13,17 @@
         = image_tag "34_chiyo005.jpg", id: :img_prev
       .new-content__image--js
         ※アップロードした画像が表示されます
+      .new-content__group-all
+        %label{:for => "group-list-menu"}
+          .new-content__groups-select
+            = "変更したいグループがある場合は選択してください"
+            %i.fas.fa-angle-down
+        %input.new-content__group-list#group-list-menu{:type =>"checkbox"}
+          %ul.new-content__select-boxes
+            = f.collection_check_boxes(:group_ids, Group.all, :id, :name) do |group|
+              %li.new-content__select-boxes--text
+                = group.check_box
+                = group.object.name
       .new-content__title-areas
         = f.text_field :title, placeholder: :寺、神社の名前, class: "new-content__title"
       .new-content__text-areas

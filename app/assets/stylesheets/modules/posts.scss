@@ -60,6 +60,7 @@
     width: 270px;
   }
   &__group-list {
+    overflow: scroll;
     background-size: 20px 20px;
     background-color: #3F51B5;
     background-image:
@@ -283,6 +284,38 @@
   &__submit:active {
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
   }
+  &__group-all input {
+    display: none;
+  }
+  &__select-boxes {
+    display: none;
+    font-size: 30px;
+    width: 300px;
+    margin: 0 360px 50px;
+    &--text {
+      border: 1px solid black;
+      display: flex;
+    }
+  }
+  &__select-boxes input {
+    display:block;
+  }
+
+  &__groups-select {
+    margin: 50px 0;
+    padding: 15px;
+    width: 400px;
+    font-weight: bold;
+    border: solid 2px black;
+    border-radius: 4px;
+    cursor :pointer;
+    margin-left: 300px;
+  }
+}
+
+
+#group-list-menu:checked + .new-content__select-boxes{
+  display:block;
 }
 
 #img_prev {
