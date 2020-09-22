@@ -1,6 +1,7 @@
 .side-bar
   .side-bar__header
-    %h1 御朱印
+    = link_to root_path do
+      %h1 御朱印
   .side-bar__group-list
     - @groups.each do |group|
       .side-bar__group-list__title

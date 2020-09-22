@@ -9,3 +9,4 @@
       = f.password_field :password, autocomplete: "off", placeholder: "パスワード", class: "login-password"
       = f.label :password, '(英数字6文字以上)'
       = f.submit "ログイン", class: 'login-submit'
+      = link_to "ゲストログイン（閲覧用）", users_guest_sign_in_path, method: :post, class:"login-submit"
