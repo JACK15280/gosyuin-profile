@@ -34,5 +34,13 @@
       color: #666666;
       font-size: 15px;
     }
+    &--delete {
+      font-size: 15px;
+      padding-left: 20px;
+      &__btn {
+        color: red;
+        text-decoration: none;
+      }
+    }
   }
 }

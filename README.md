@@ -6,9 +6,10 @@
 ## 本番環境
 [Gosyuin-Profile](https://gosyuin-profile.herokuapp.com)
 - テストアカウント  
+※ログインページ下部の「ゲストログイン（閲覧用）」にアスセスしてください  
 ユーザー名 :テスト  
-メールアドレス: t@t  
-パスワード: 111111
+メールアドレス: guest@example.com  
+パスワード: ※自動生成されます
 
 
 ## 制作意図
