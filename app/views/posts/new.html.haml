@@ -4,7 +4,7 @@
     = form_for @post, html: { class: "new-content" } do |f|
       = f.label :image, class: "new-content__image" do
         %i.fa.fa-image
-        = f.file_field :image, class: "new-content__image--file"
+        = f.file_field :image, {class: "new-content__image--file", required: true}
       .new-content__image--explanation
         ここに写真をアップロード
       - if @post.image.present?
