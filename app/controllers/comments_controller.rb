@@ -7,6 +7,12 @@ class CommentsController < ApplicationController
     end
   end
 
+  def destroy
+    post = Post.find(params[:post_id])
+    @comment = Comment.find_by(id: params[:id], post_id: params[:post_id])
+    @comment.destroy
+    redirect_to post_path(post.id), notice: "コメントを削除しました"
+  end
   private
   def comment_params
     params.require(:comment).permit(:text).merge(user_id: current_user.id, post_id: params[:post_id])
