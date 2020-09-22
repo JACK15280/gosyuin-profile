@@ -45,6 +45,30 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    if params[:q].present?
+      @search = Post.ransack(search_params)
+    else
+      params[:q] = { sorts: 'id desc' }
+      @search = Post.ransack()
+    end
+    @posts = Post.search(params[:keyword])
+    @search_name = params[:keyword]
+    @search = Post.ransack(params[:q])
+  end
+
+  def again_search
+    if params[:q].present?
+      @search = Post.ransack(search_params)
+    else
+      params[:q] = { sorts: 'id desc' }
+      @search = Post.ransack()
+    end
+    @search = Post.ransack(params[:q])
+    @search_posts = @search.result(distinct: true)
+  end
+
+
   private
   def post_params
     params.require(:post).permit(:title, :content, :image, group_ids: []).merge(user_id: current_user.id)
@@ -56,5 +80,13 @@ class PostsController < ApplicationController
 
   def set_group
     @groups = Group.all
+  end
+
+  def search_params
+    params.require(:q).permit(
+        :sorts,
+        :name_cont,
+        :content_cont
+      )
   end
 end

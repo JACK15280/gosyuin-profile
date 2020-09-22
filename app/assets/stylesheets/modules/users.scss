@@ -149,7 +149,8 @@ input {
   border: 3px;
   height: 60px;
   width: 100px;
-  margin: 25px 0 0 750px;
+  min-width: 100px;
+  margin: 25px 0 0 650px;
   line-height: 60px;
   padding-left: 20px;
   text-decoration: none;

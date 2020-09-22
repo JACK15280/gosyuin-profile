@@ -10,25 +10,20 @@
     = link_to new_post_path, class: "main-space__info--new-post__btn" do
       %i.fas.fa-plus-circle
 
+  .again-search
+    %h1 追加検索
+    = search_form_for @search, url: again_search_posts_path do |f|
+      = f.select( :sorts, { '並び替え': 'id desc', '投稿の古い順': 'updated_at asc', '投稿の新しい順': 'updated_at desc' } , { selected: params[:q][:sorts] }, { onchange: 'this.form.submit()'})
+      = f.search_field :title_cont, placeholder: "寺、神社の名前", class: "main-space__search--text"
+      = f.search_field :content_cont, placeholder: "日記の内容", class: "main-space__search--text"
+      = f.submit "完了", class: "main-space__search--btn"
   .main-space__contents
     .main-space__search
-      = form_tag posts_searches_path, local: true, method: :get do
-        = text_field_tag :keyword, "#{@search_name}", class: "main-space__search--text"
-        = submit_tag "検索", class: "main-space__search--btn"
-    .main-space__info--name
-      - if @search_name == ""
-        検索結果：該当なし
-      - else
-        %span.main-space__info--name__search
-          = "#{@search_name}"
-        の検索結果
     .search-result
-    - @posts.each do |post|
+    - @search_posts.each do |post|
       .main-space__contents--title
         = image_tag post.image.url, class: "main-space__contents--title__image"
         .main-space__contents--title__over
           = link_to post.title, post_path(post.id), class: "main-space__contents--title__text"
         .main-space__contents--title__teb
           = link_to post.user.name, user_path(post.user), class: "main-space__contents--title__name"
-
-  

@@ -7,10 +7,11 @@ Rails.application.routes.draw do
   resources :maps, only: [:index]
   resources :users, only: [:show, :edit, :update, :destroy]
   resources :groups, except: :index
-  namespace :posts do
-    resources :searches, only: :index
-  end
   resources :posts do
+    collection do
+      get 'search'
+      get 'again_search'
+    end
     resources :comments, only: [:create, :destroy]
   end
 end
