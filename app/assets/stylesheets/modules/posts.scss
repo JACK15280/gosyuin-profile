@@ -218,8 +218,16 @@
   }
 }
 
+.main-space h3 {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  display: none;
+}
 .new-content {
-  padding-top: 80px;
+  &__status-areas {
+    margin-left: 555px;
+  }
   &__image {
     padding-left: 400px;
     font-size: 200px;
@@ -313,6 +321,14 @@
     border-radius: 4px;
     cursor :pointer;
     margin-left: 300px;
+  }
+}
+@media (max-width: 1300px){
+  .new-content__image--explanation {
+    display: none;
+  }
+  .main-space h3 {
+    display: block;
   }
 }
 
