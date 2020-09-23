@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     collection do
       get 'search'
       get 'again_search'
+      get 'post_all_page'
+      get 'no_nreleased'
     end
     resources :comments, only: [:create, :destroy]
   end

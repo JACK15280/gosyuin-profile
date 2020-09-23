@@ -68,6 +68,15 @@ class PostsController < ApplicationController
     @search_posts = @search.result(distinct: true)
   end
 
+  def post_all_page
+    @posts = Post.includes(:user)
+    @user = User.all
+  end
+
+  def no_nreleased
+    @posts = Post.includes(:user)
+    @user = User.all
+  end
 
   private
   def post_params
