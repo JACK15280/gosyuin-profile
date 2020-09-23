@@ -15,9 +15,10 @@
         = text_field_tag :keyword, '', placeholder: "神社名や日記の内容を入力", class: "main-space__search--text"
         = submit_tag "検索", class: "main-space__search--btn"
     - @posts.each do |post|
-      .main-space__contents--title
-        = image_tag post.image.url, class: "main-space__contents--title__image"
-        .main-space__contents--title__over
-          = link_to post.title, post_path(post.id), class: "main-space__contents--title__text"
-        .main-space__contents--title__teb
-          = link_to post.user.name, user_path(post.user), class: "main-space__contents--title__name"
+      - unless post.status == 2
+        .main-space__contents--title
+          = image_tag post.image.url, class: "main-space__contents--title__image"
+          .main-space__contents--title__over
+            = link_to post.title, post_path(post.id), class: "main-space__contents--title__text"
+          .main-space__contents--title__teb
+            = link_to post.user.name, user_path(post.user), class: "main-space__contents--title__name"

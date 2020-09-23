@@ -39,9 +39,10 @@ ActiveRecord::Schema.define(version: 20200720041611) do
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
-    t.string   "title"
+    t.integer  "status",                   null: false
+    t.string   "title",                    null: false
     t.text     "content",    limit: 65535
-    t.string   "image"
+    t.string   "image",                    null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end

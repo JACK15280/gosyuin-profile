@@ -1,6 +1,7 @@
 .wrapper
   = render "side-bar"
   .main-space
+    %h3 ※アイコンをクリックして写真をアップロード
     = form_for @post, html: { class: "new-content" } do |f|
       = f.label :image, class: "new-content__image" do
         %i.fa.fa-image
@@ -28,6 +29,11 @@
         = f.text_field :title, placeholder: :寺、神社の名前, class: "new-content__title"
       .new-content__text-areas
         = f.text_area :content, placeholder: :感想, class: "new-content__text"
+      .new-content__status-areas
+        = f.radio_button :status, "1", id:"status-select", class: "status-select__btn", checked: "checked"
+        = f.label "公開する", for:"status-select", class: "status-select"
+        = f.radio_button :status, "2", id:"status-select", class: "status-select__btn"
+        = f.label "非公開にする", for:"status-select", class: "status-select"
         = f.submit "保存", class: "new-content__submit", data: { confirm: '新規投稿を完了しますか？' }
       .btn
         = link_to 'ホーム', root_path, class: "btn__home", data: { confirm: 'ホームへ戻りますか？' }

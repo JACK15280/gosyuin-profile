@@ -14,10 +14,10 @@
         %i.fas.fa-plus-circle
     .user-show
       - @posts.each do |post|
-        .main-space__contents--title
-          = image_tag post.image.url, class: "main-space__contents--title__image"
-          .main-space__contents--title__over
-            = link_to post.title, post_path(post.id), class: "main-space__contents--title__text"
-          .main-space__contents--title__teb
-            = link_to post.user.name, user_path(post.user), class: "main-space__contents--title__name"
-
+        - unless post.status == 2
+          .main-space__contents--title
+            = image_tag post.image.url, class: "main-space__contents--title__image"
+            .main-space__contents--title__over
+              = link_to post.title, post_path(post.id), class: "main-space__contents--title__text"
+            .main-space__contents--title__teb
+              = link_to post.user.name, user_path(post.user), class: "main-space__contents--title__name"
