@@ -8,8 +8,9 @@
         %i.fas.fa-plus-circle
     .user-show
       - @posts.each do |post|
-        .main-space__contents--title
-          = image_tag post.image.url, class: "main-space__contents--title__image"
-          = link_to post.title, post_path(post.id), class: "main-space__contents--title__text"
+        - unless post.status == 2
+          .main-space__contents--title
+            = image_tag post.image.url, class: "main-space__contents--title__image"
+            = link_to post.title, post_path(post.id), class: "main-space__contents--title__text"
 
     = link_to "ホーム", root_path, class: "btn__home"
