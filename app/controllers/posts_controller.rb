@@ -41,8 +41,12 @@ class PostsController < ApplicationController
 
   def destroy
     post = Post.find(params[:id])
-    post.destroy
-    redirect_to root_path
+    if post.destroy
+      redirect_to root_path, notice: '御朱印を削除しました'
+    else
+      flash.now[:alert] = '削除できませんでした。'
+      redirect_to post_path(params[:post_id])
+    end
   end
 
   def search
