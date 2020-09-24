@@ -6,7 +6,7 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :group_posts, dependent: :destroy
   has_many :groups, through: :group_posts, dependent: :destroy
-
+  has_many :favorites, dependent: :destroy
   def self.search(search)
     if search
       Post.where(['title LIKE ? OR content LIKE ?', "%#{search}%", "%#{search}%"])

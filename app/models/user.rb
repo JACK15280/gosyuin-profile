@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   has_many :groups
   has_many :comments
-
+  has_many :favorites, dependent: :destroy
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64

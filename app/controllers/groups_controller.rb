@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   end
 
   def new
-    @posts = Post.all
+    @posts = Post.all.where(status: 1)
     @groups = Group.all
     @group = Group.new
   end
@@ -25,7 +25,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @posts = Post.all
+    @posts = Post.all.where(status: 1)
     @group = Group.find(params[:id])
     @groups = Group.all
     

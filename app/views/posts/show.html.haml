@@ -14,7 +14,9 @@
         = @post.updated_at.strftime("%Y年%m月%d日 %H:%M")
       .content-page__content
         = @post.content
-
+    - unless current_user.id == @post.user_id
+      .favorite
+        = render "favorites/favorite"
     .container
       - if current_user
         = form_for [@post, @comment] do |f|

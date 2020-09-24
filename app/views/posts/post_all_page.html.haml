@@ -4,6 +4,7 @@
       = link_to "#{current_user.name}さんの投稿一覧", user_path(current_user), class: "main-space__info--name"
       = link_to "ホーム", root_path, class: "btn__home"
       = link_to "非公開投稿", no_nreleased_posts_path, class: "btn__no-oficial"
+      = link_to "お気に入り", user_favorite_users_path, class: "btn__favorite"
       = link_to "アカウント編集", edit_user_registration_path, class: "btn__edit"
       .main-space__info--new-post
       = link_to new_post_path, class: "main-space__info--new-post__btn" do
