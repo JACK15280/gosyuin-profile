@@ -1,0 +1,11 @@
+#favorite{ id: @post.id }
+  - if !Favorite.exists?(user: current_user, post_id: @post.id)
+    = link_to post_favorites_path(@post), method: :post, class: "favorite-btn__post" do
+      %h1.favorite__text お気に入り登録
+      .favorite__text--length
+        = @post.favorites.length
+  - else
+    = link_to post_favorite_path(@post), method: :delete, class: "favorite-btn__delete" do
+      %h1.favorite__text お気に入り済
+      .favorite__text--length
+        = @post.favorites.length

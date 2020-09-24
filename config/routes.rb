@@ -5,7 +5,11 @@ Rails.application.routes.draw do
     post '/users/guest_sign_in', to: 'users/sessions#new_guest'
   end
   resources :maps, only: [:index]
-  resources :users, only: [:show, :edit, :update, :destroy]
+  resources :users, only: [:show, :edit, :update, :destroy] do
+    collection do
+      get 'user_favorite'
+    end
+  end
   resources :groups, except: :index
   resources :posts do
     collection do
@@ -15,5 +19,6 @@ Rails.application.routes.draw do
       get 'no_nreleased'
     end
     resources :comments, only: [:create, :destroy]
+    resources :favorites, only: [:create, :destroy]
   end
 end

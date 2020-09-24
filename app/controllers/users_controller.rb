@@ -4,6 +4,8 @@ class UsersController < ApplicationController
     @groups = Group.all
     @user = User.find(params[:id])
     @posts = @user.posts
+    favorites = Favorite.where(user_id: @user.id).pluck(:post_id)
+    @favorite_list = Post.find(favorites)
   end
 
   def edit
@@ -26,6 +28,11 @@ class UsersController < ApplicationController
       flash.now[:alert] = '処理が実行出来ませんでした。'
       render :show
     end
+  end
+
+  def user_favorite
+    favorites = Favorite.where(user_id: current_user.id).pluck(:post_id)
+    @favorite_list = Post.find(favorites)
   end
 
   private

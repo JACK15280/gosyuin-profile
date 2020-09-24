@@ -1,21 +1,13 @@
 .wrapper
-  = render "posts/side-bar"
   .main-space
     .main-space__info
-      = link_to "#{@user.name}さんの投稿一覧", user_path(current_user), class: "main-space__info--name"
+      = link_to "#{current_user.name}さんのお気に入り一覧", user_path(current_user), class: "main-space__info--name"
       = link_to "ホーム", root_path, class: "btn__home"
       .main-space__info--new-post
       = link_to new_post_path, class: "main-space__info--new-post__btn" do
         %i.fas.fa-plus-circle
-    .user-show
-      - @posts.each do |post|
-        - unless post.status == 2
-          .main-space__contents--title
-            = image_tag post.image.url, class: "main-space__contents--title__image"
-            = link_to post.title, post_path(post.id), class: "main-space__contents--title__text"
+
     .user-favorite
-      %h2.main-space__info--name
-        お気に入り一覧
       .user-favorite__posts
         - @favorite_list.each do |post|
           - unless post.status == 2

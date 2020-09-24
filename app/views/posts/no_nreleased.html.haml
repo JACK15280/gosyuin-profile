@@ -3,7 +3,6 @@
     .main-space__info
       = link_to "#{current_user.name}さんの非公開投稿一覧", user_path(current_user), class: "main-space__info--name"
       = link_to "ホーム", root_path, class: "btn__home"
-      = link_to "アカウント編集", edit_user_registration_path, class: "btn__edit"
       .main-space__info--new-post
       = link_to new_post_path, class: "main-space__info--new-post__btn" do
         %i.fas.fa-plus-circle
