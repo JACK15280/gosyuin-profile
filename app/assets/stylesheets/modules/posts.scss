@@ -159,7 +159,7 @@
       transform: translate(-50%, -50%);
       &__btn {
         padding: 0.75em 2em;
-        margin: 20px 0 20px 200px;
+        margin: 20px 0 20px 100px;
         color: #2194E0;
         border: 2px solid #2194E0;
         font-size: 24px;
@@ -386,6 +386,34 @@
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
   }
+  &__bell {
+    color: yellow;
+    font-size: 50px;
+    line-height: 120px;
+    min-width: 120px;
+    width: 120px;
+    height: 120px;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 50%;
+    background-color: #008080;
+    text-decoration: none;
+    transition: .4s;
+    &--text {
+      font-size: 20px;
+      color: yellow;
+      display: inline;
+      position: absolute;
+      top: -40px;
+    }
+  }
+  &__bell:hover {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+  &__bell p {
+    font-size: 20px;
+  }
   &__edit {
     margin-right: 20px;
     display: inline-block;
@@ -516,5 +544,11 @@
       text-align: center;
       color: white;
     }
+  }
+  &__btn-post {
+    text-decoration: none;
+  }
+  &__btn-delete {
+    text-decoration: underline dotted red;
   }
 }

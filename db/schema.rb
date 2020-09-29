@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200924000911) do
+ActiveRecord::Schema.define(version: 20200928104030) do
 
   create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
@@ -46,6 +46,21 @@ ActiveRecord::Schema.define(version: 20200924000911) do
     t.index ["name"], name: "index_groups_on_name", unique: true, using: :btree
   end
 
+  create_table "notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "visitor_id",                 null: false
+    t.integer  "visited_id",                 null: false
+    t.integer  "post_id"
+    t.integer  "comment_id"
+    t.string   "action",                     null: false
+    t.boolean  "checked",    default: false, null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["comment_id"], name: "index_notifications_on_comment_id", using: :btree
+    t.index ["post_id"], name: "index_notifications_on_post_id", using: :btree
+    t.index ["visited_id"], name: "index_notifications_on_visited_id", using: :btree
+    t.index ["visitor_id"], name: "index_notifications_on_visitor_id", using: :btree
+  end
+
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.integer  "status",                   null: false
@@ -74,4 +89,8 @@ ActiveRecord::Schema.define(version: 20200924000911) do
   add_foreign_key "favorites", "users"
   add_foreign_key "group_posts", "groups"
   add_foreign_key "group_posts", "posts"
+  add_foreign_key "notifications", "comments"
+  add_foreign_key "notifications", "posts"
+  add_foreign_key "notifications", "users", column: "visited_id"
+  add_foreign_key "notifications", "users", column: "visitor_id"
 end

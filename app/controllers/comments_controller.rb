@@ -5,6 +5,8 @@ class CommentsController < ApplicationController
       format.html { redirect_to post_path(params[:post_id]) }
       format.json
     end
+    @comment_post = @comment.post
+    @comment_post.create_notification_comment!(current_user, @comment.id)
   end
 
   def destroy

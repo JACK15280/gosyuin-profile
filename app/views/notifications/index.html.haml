@@ -1,0 +1,16 @@
+.main-space
+  .main-space__info
+    .main-space__info--name-pad
+      = link_to current_user.name, user_path(current_user), class: "main-space__info--name"
+    = link_to "ホーム", root_path, class: "btn__home"
+  .notifications
+    .notifications__text
+      .main-space__info--name
+        通知一覧
+      = link_to "通知削除", notification_path(@notifications), method: :delete, class: "notifications__trash"
+      - if @notifications.exists?
+        .notifications__index
+          = render @notifications
+      - else
+        %p.notifications__none
+          通知はありません
