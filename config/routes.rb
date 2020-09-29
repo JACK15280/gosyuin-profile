@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     end
   end
   resources :groups, except: :index
+  resources :notifications, only: [:index, :destroy]
   resources :posts do
     collection do
       get 'search'

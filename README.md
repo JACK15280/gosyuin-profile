@@ -25,20 +25,16 @@
 技術を学んだことで、あの時必要だったアプリを自ら制作することを実現できた。
 - 新規投稿ページにテキスト欄を設けることで、自由に記録を残せるよう実装した。(日記機能)
 - GoogleMapのAPIを取得し、場所の特定や、道中を思い出すヒントを増やせるよう、マップ機能を実装した。
-- 文字列での投稿検索機能を実装した。
-- 現在の投稿や、投稿の編集の際 どの画像を投稿したか可視化するため、JavaScriptで画像表示を実装した。
-- 視覚的に変化が分かりやすいよう、フラッシュメッセージを実装した。
-- コメントの際、ユーザーに対してのストレス緩和の為、JavaScriptでコメント表示を実装した。
-- 投稿のまとめの為、ユーザーの投稿一覧と、投稿のグループ化機能を実装した。
+- ユーザー同士のコミュニケーションがスムーズになるように、コメントの通知機能を実装した。
+
 
 
 ## 使用技術(開発環境)
-- HTML, CSS, Ruby, Ruby on Rails, JavaScript, Haml, Sass
+- HTML/ CSS/ Ruby/ Ruby on Rails/ JavaScript/ jQuery/ Haml/ SCSS/ Git/ GitHub/ AWS/ MySQL
 
 
 ## 課題や今後実装したい機能
-- 投稿のお気に入り機能
-- レスポンシブデザイン
+- デバイスに応じたレスポンシブデザイン
 
 
 ## DB設計
@@ -47,16 +43,18 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer||
-|title|string||
+|status|intefer|null: false|
+|title|string|null: false|
 |content|text||
-|image|string||
+|image|string|null: false|
 
 #### Association
 - belongs_to :user
 - has_many :comments
 - has_many :group_posts, dependent: :destroy
 - has_many :groups, through: :group_posts, dependent: :destroy
-- validates :image, :title, presence: true
+- has_many :favorites, dependent: :destroy
+- has_many :notifications, dependent: :destroy
 
 
 ### usersテーブル
@@ -70,7 +68,9 @@
 - has_many :posts, dependent: :destroy
 - has_many :groups
 - has_many :comments
-- validates :name, presence: true, uniqueness: true
+- has_many :favorites, dependent: :destroy
+- has_many :active_notifications, foreign_key:"visitor_id", class_name: "Notification", dependent: :destroy
+- has_many :passive_notifications, foreign_key:"visited_id", class_name: "Notification", dependent: :destroy
 
 
 ### groupsテーブル
@@ -83,7 +83,6 @@
 - has_many :group_posts, dependent: :destroy
 - has_many :posts, through: :group_posts, dependent: :destroy
 - belongs_to :user
-- validates :name, presence: true, uniqueness: true
 
 
 ### commentsテーブル
@@ -96,7 +95,7 @@
 #### Association
 - belongs_to :post
 - belongs_to :user
-- validates :text, presence: true
+- has_many :notifications, dependent: :destroy
 
 
 ### group_postsテーブル
@@ -108,3 +107,31 @@
 #### Association
 - belongs_to :group
 - belongs_to :post
+
+
+### favoritesテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|references|foreign_key: true|
+|post_id|references|foreign_key: true|
+
+#### Association
+- belongs_to :user
+- belongs_to :post
+
+
+#### notificationsテーブル
+|Column|Type|Options|
+|------|----|-------|
+|visitor_id|references|foreign_key:{ to_table: :users }, null: false|
+|visited_id|references|foreign_key:{ to_table: :users }, null: false|
+|post_id|references|foreign_key: true|
+|comment_id|references|foreign_key: true|
+|action|string|null: false|
+|checked|boolean|default: false, null: false|
+
+#### Association
+- belongs_to :visitor, class_name: "User", optional: true
+- belongs_to :visited, class_name: "User", optional: true
+- belongs_to :post, optional: true
+- belongs_to :comment, optional: true

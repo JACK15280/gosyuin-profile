@@ -5,6 +5,16 @@
     = link_to "グループ作成", new_group_path, class: "btn__edit"
     = link_to "マイページ", post_all_page_posts_path, class: "btn__mypage"
     = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn__delete"
+    - if unchecked_notifications.any?
+      = link_to notifications_path, class: "btn__bell" do
+        .btn__bell--text
+          新着！
+        %i.fa.fa-bell
+    - else
+      = link_to notifications_path, class: "btn__bell" do
+        %p
+          通知なし
+
     .main-space__info--new-post
     = link_to new_post_path, class: "main-space__info--new-post__btn" do
       %i.fas.fa-plus-circle

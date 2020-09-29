@@ -1,0 +1,10 @@
+.notifications__view
+  = notification_form(notification)
+  .notifications__view--name
+    = link_to @visitor.name, user_path(@visitor)
+    .notifications__view--text
+      さんが
+    = link_to @comment.post.title, post_path(notification.post_id)
+    .notifications__view--text
+      にコメントしました
+    = "(#{time_ago_in_words(notification.created_at)}前)"
