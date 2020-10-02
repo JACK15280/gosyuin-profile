@@ -27,3 +27,4 @@
             = link_to post.title, post_path(post.id), class: "main-space__contents--title__text"
           .main-space__contents--title__teb
             = link_to post.user.name, user_path(post.user), class: "main-space__contents--title__name"
+    = paginate(@search_posts)

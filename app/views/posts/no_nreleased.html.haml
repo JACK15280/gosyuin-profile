@@ -12,3 +12,4 @@
           .main-space__contents--title
             = image_tag post.image.url, class: "main-space__contents--title__image"
             = link_to post.title, post_path(post.id), class: "main-space__contents--title__text"
+      = paginate(@posts)
