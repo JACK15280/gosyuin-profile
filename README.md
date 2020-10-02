@@ -17,17 +17,17 @@
 ※ホームページ右上部より新規投稿が可能です(https://gyazo.com/a9715bab4a8b0f4fccc3ed1b694a48d8)
 - 投稿をグループ化させる機能(グループの新規作成、編集、削除機能) 
 (https://gyazo.com/cade929dd8f71b2f5bc6cd9b5de11cb0)
-- 投稿へのコメント機能 
+- 投稿へのコメント機能  
 (https://gyazo.com/b00e205c695745d0a3d9c7f2defde126)
-- コメント通知機能 
+- コメント通知機能  
 (https://gyazo.com/b534c8818a7d4af664bc5dbaa498896a)
-- 投稿検索機能、投稿詳細検索機能 
-(https://gyazo.com/21fa8f8078dfbacd69d071f86ffd92eb) 
+- 投稿検索機能、投稿詳細検索機能  
+(https://gyazo.com/21fa8f8078dfbacd69d071f86ffd92eb)  
 (https://gyazo.com/ea1008554a7b2f27eee0167e7de37e60)
-- 投稿の非公開機能
-(https://gyazo.com/663667a3a08cbcdd279f80356d6db936) 
+- 投稿の非公開機能  
+(https://gyazo.com/663667a3a08cbcdd279f80356d6db936)  
 (https://gyazo.com/4598e1aeda3cc05e47466a63d8f73b74)
-- 投稿のお気に入り、お気に入り解除機能
+- 投稿のお気に入り、お気に入り解除機能  
 (https://gyazo.com/87f4827760728c3c4086c1fcfc135422)
 
 ## 制作意図

@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :set_group
 
   def index
-    @posts = Post.includes(:user).order("updated_at DESC")
+    @posts = Post.includes(:user).where(status: 1).order("updated_at DESC").page(params[:page]).per(5)
   end
 
   def new
@@ -56,7 +56,7 @@ class PostsController < ApplicationController
       params[:q] = { sorts: 'id desc' }
       @search = Post.ransack()
     end
-    @posts = Post.search(params[:keyword])
+    @posts = Post.search(params[:keyword]).where(status: 1).order("updated_at DESC").page(params[:page]).per(30)
     @search_name = params[:keyword]
     @search = Post.ransack(params[:q])
   end
@@ -69,16 +69,16 @@ class PostsController < ApplicationController
       @search = Post.ransack()
     end
     @search = Post.ransack(params[:q])
-    @search_posts = @search.result(distinct: true)
+    @search_posts = @search.result(distinct: true).where(status: 1).order("updated_at DESC").page(params[:page]).per(30)
   end
 
   def post_all_page
-    @posts = Post.includes(:user)
+    @posts = Post.includes(:user).order("updated_at DESC")
     @user = User.all
   end
 
   def no_nreleased
-    @posts = Post.includes(:user)
+    @posts = Post.includes(:user).where(status: 2).order("updated_at DESC").page(params[:page]).per(30)
     @user = User.all
   end
 

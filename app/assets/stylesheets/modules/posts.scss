@@ -552,3 +552,17 @@
     text-decoration: underline dotted red;
   }
 }
+
+.pagination a {
+  border: none;
+  color: orange;
+  font-size: 20px;
+}
+
+.pagination a:hover {
+  color: blue;
+}
+.page {
+  font-size: 23px;
+}
+

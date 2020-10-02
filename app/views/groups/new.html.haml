@@ -19,4 +19,5 @@
                 = image_tag(post.object.image, class: "group__add-image")
               .group__add-title
                 = post.object.title
+      = paginate(@posts)
       = f.submit "作成", class: "group__edit-btn", data: { confirm: 'グループ新規作成を完了しますか？' }

@@ -4,7 +4,7 @@ class GroupsController < ApplicationController
   end
 
   def new
-    @posts = Post.all.where(status: 1)
+    @posts = Post.all.where(status: 1).order("updated_at DESC").page(params[:page]).per(30)
     @groups = Group.all
     @group = Group.new
   end
@@ -25,7 +25,7 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    @posts = Post.all.where(status: 1)
+    @posts = Post.all.where(status: 1).order("updated_at DESC").page(params[:page]).per(30)
     @group = Group.find(params[:id])
     @groups = Group.all
     
