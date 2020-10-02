@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   before_action :set_group
 
   def index
-    @posts = Post.includes(:user).where(status: 1).order("updated_at DESC").page(params[:page]).per(5)
+    @posts = Post.includes(:user).where(status: 1).order("updated_at DESC").page(params[:page]).per(30)
   end
 
   def new
